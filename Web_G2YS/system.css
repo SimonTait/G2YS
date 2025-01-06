@@ -1,0 +1,194 @@
+:root{
+  --themeColor: #ff9933;
+  --themeTextColor: #9da5b4;
+  --backgroundColor1: #282c34;
+  --backgroundColor2: #21252b;
+  --systemTransitionTime: 250ms;
+  --systemBorderRadius: 5px;
+}
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  font-family: Arial;
+  font-size: 15px;
+  color: var(--themeTextColor);
+  background-color: var(--backgroundColor1);
+  padding: 20px;
+}
+
+h1{
+  font-weight: normal;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  color: var(--themeColor);
+  font-size: 18px;
+  padding: 0;
+}
+
+.product-icon-tile{
+  display: inline-block;
+  position: relative;
+  min-width: 200px;
+  text-align: center;
+}
+
+.product-icon-tile > img{
+  height: 150px;
+  filter: grayscale(100%) opacity(0.5);
+  transition: all var(--systemTransitionTime);
+}
+
+.product-icon-tile > img.active{
+  filter: grayscale(0%) opacity(1);
+  transition: all var(--systemTransitionTime);
+}
+
+.connected-device-information-container{
+  position: absolute;
+  bottom: 15px;
+  text-align: center;
+  width: 100%;
+  filter: opacity(0);
+  transition: filter var(--systemTransitionTime);
+}
+
+.connected-device-information{
+  display: inline-block;
+  background-color: #ff9933;
+  border: 1px solid black;
+  color: black;
+  border-radius: 5px;
+  padding: 4px 8px;
+}
+
+.connected-device-information-container.active{
+  filter: opacity(1);
+  transition: filter var(--systemTransitionTime);
+}
+
+.gpio-bank-selector{
+  width: 80px;
+  padding: 3px;
+  text-align: center;
+  border: 1px solid black;
+  color: #555;
+  background-color: #21252b;
+  transition: all var(--systemTransitionTime);
+  cursor: pointer;
+}
+
+.gpio-bank-selector:first-of-type{
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.gpio-bank-selector:last-of-type{
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.gpio-bank-selector.active{
+  color: var(--themeColor);
+  border-color: var(--themeColor);
+}
+
+.bank-panel{
+  display: none;
+}
+
+.bank-panel.visible{
+  display: block;
+}
+
+button.gpio-program, button.close-page-overlay{
+  color: #555;
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: var(--backgroundColor2);
+  border: 1px solid black;
+  border-radius: var(--systemBorderRadius);
+  text-align: center;
+  margin-right: 5px;
+  min-width: 80px;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+button.gpio-program.fixed-width{
+  width: 120px;
+}
+
+button.gpio-program .row-1, button.gpio-program .row-1{
+  margin-bottom: 3px;
+}
+
+button.gpio-program .row-1, button.gpio-program .row-2{
+  transition: color var(--systemTransitionTime);
+}
+
+
+button.gpio-program .row-1.active, button.gpio-program .row-2.active{
+  color: var(--themeColor);
+}
+
+button:hover.input-channel-select, button:hover.close-page-overlay, button.input-channel-select.active{
+  background-color: var(--themeColor);
+  color: black;
+}
+
+#page-overlay-background{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: black;
+  visibility: hidden;
+  filter: opacity(0.6);
+}
+
+#page-overlay-container{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+}
+
+#page-overlay-content{
+  background-color: var(--backgroundColor1);
+  padding: 30px 50px;
+  border: 1px solid var(--themeColor);
+  border-radius: var(--systemBorderRadius);
+  display: block;
+}
+
+#page-overlay-background.visible, #page-overlay-container.visible{
+  visibility: visible;
+}
+
+button.clear-gpio-assignment{
+  margin-left: 5px;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+}
+
+button.clear-gpio-assignment > svg {
+  width: 25px;
+  height: 25px;
+  fill: #666;
+}
+
+button:hover.clear-gpio-assignment > svg {
+  fill: var(--themeColor);
+}
