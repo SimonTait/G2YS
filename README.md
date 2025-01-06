@@ -1,5 +1,6 @@
 # G2YS
 **Not tested since 2020 ... YMMV**
+
 GPIO to Yamaha SCP
 
 Automatically finds a single Yamaha QL/CL console on the same subnet as the R.Pi and issues remote control commands via SCP in response to GPIO actions.
